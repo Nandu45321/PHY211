@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermodynamics Formula Sheet - Physics 211</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 3px solid #e0e0e0;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .nav-tab {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: -3px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .formula-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .formula-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .formula-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .formula-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .formula-box .formula {
+            font-size: 1.1em;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .important {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f39c12;
+        }
+
+        .important h4 {
+            color: #d68910;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: #f5f7fa;
+        }
+
+        .constant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .constant-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .constant-item:hover {
+            border-color: #667eea;
+            transform: scale(1.02);
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #27ae60;
+        }
+
+        .tips-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+        }
+
+        .tips-box li {
+            margin: 8px 0;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>📚 Thermodynamics Formula Sheet</h1>
+        <p>Physics 211 - IISER TVM | Mid-Semester Exam Preparation</p>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="nav-tab active" onclick="showSection('basics')">Basic Laws</button>
+        <button class="nav-tab" onclick="showSection('processes')">Processes</button>
+        <button class="nav-tab" onclick="showSection('cycles')">Cycles & Engines</button>
+        <button class="nav-tab" onclick="showSection('entropy')">Entropy & Free Energy</button>
+        <button class="nav-tab" onclick="showSection('gases')">Kinetic Theory</button>
+        <button class="nav-tab" onclick="showSection('constants')">Constants & Tables</button>
+    </div>
+
+    <div class="content">
+        <!-- Basic Laws Section -->
+        <div id="basics" class="section active">
+            <h2>Fundamental Laws of Thermodynamics</h2>
+
+            <div class="formula-card">
+                <h3>🔥 First Law of Thermodynamics</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$dU = \delta Q - \delta W$$
+                        $$\Delta U = Q - W$$
+                    </div>
+                    <p><strong>Where:</strong> U = Internal Energy, Q = Heat added to system, W = Work done by system</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>♨️ Second Law of Thermodynamics</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$dS \geq \frac{\delta Q}{T}$$
+                        $$\Delta S_{universe} \geq 0$$
+                    </div>
+                    <p><strong>Clausius Statement:</strong> Heat cannot flow spontaneously from cold to hot.</p>
+                    <p><strong>Kelvin-Planck Statement:</strong> No heat engine can convert all heat into work.</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>❄️ Third Law of Thermodynamics</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$\lim_{T \to 0} S = 0$$
+                    </div>
+                    <p>Entropy of a perfect crystal at absolute zero is zero.</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>⚡ Fundamental Thermodynamic Relations</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$dU = TdS - PdV + \mu dN$$
+                        $$H = U + PV$$
+                        $$F = U - TS$$
+                        $$G = H - TS = U + PV - TS$$
+                    </div>
+                    <p><strong>Where:</strong> H = Enthalpy, F = Helmholtz Free Energy, G = Gibbs Free Energy</p>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4>⚠️ Important Work Formulas</h4>
+                <div class="formula">
+                    $$W = \int P \, dV$$
+                    $$W_{reversible} = nRT \ln\left(\frac{V_f}{V_i}\right)$$ (Isothermal Process)
+                    $$W = \frac{nR(T_f - T_i)}{1-\gamma}$$ (Adiabatic Process)
+                </div>
+            </div>
+        </div>
+
+        <!-- Processes Section -->
+        <div id="processes" class="section">
+            <h2>Thermodynamic Processes</h2>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Process</th>
+                    <th>Condition</th>
+                    <th>Work (W)</th>
+                    <th>Heat (Q)</th>
+                    <th>ΔU</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>Isothermal</strong></td>
+                    <td>\(T = \text{const}\)</td>
+                    <td>\(nRT\ln\left(\frac{V_f}{V_i}\right)\)</td>
+                    <td>\(nRT\ln\left(\frac{V_f}{V_i}\right)\)</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td><strong>Adiabatic</strong></td>
+                    <td>\(Q = 0\)</td>
+                    <td>\(\frac{nR(T_i - T_f)}{\gamma - 1}\)</td>
+                    <td>0</td>
+                    <td>\(-W\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Isobaric</strong></td>
+                    <td>\(P = \text{const}\)</td>
+                    <td>\(P(V_f - V_i)\)</td>
+                    <td>\(nC_p(T_f - T_i)\)</td>
+                    <td>\(nC_v(T_f - T_i)\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Isochoric</strong></td>
+                    <td>\(V = \text{const}\)</td>
+                    <td>0</td>
+                    <td>\(nC_v(T_f - T_i)\)</td>
+                    <td>\(Q\)</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="formula-card">
+                <h3>📊 Polytropic Process</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$PV^n = \text{constant}$$
+                        $$W = \frac{P_2V_2 - P_1V_1}{1-n} = \frac{nR(T_2 - T_1)}{1-n}$$
+                    </div>
+                    <p><strong>Special Cases:</strong></p>
+                    <ul>
+                        <li>n = 0: Isobaric</li>
+                        <li>n = 1: Isothermal</li>
+                        <li>n = γ: Adiabatic</li>
+                        <li>n = ∞: Isochoric</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🔄 Reversible vs Irreversible</h3>
+                <div class="formula-box">
+                    <p><strong>Reversible Process:</strong> \(\Delta S_{universe} = 0\)</p>
+                    <p><strong>Irreversible Process:</strong> \(\Delta S_{universe} > 0\)</p>
+                    <div class="formula">
+                        $$W_{lost} = T_0 \Delta S_{universe}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cycles Section -->
+        <div id="cycles" class="section">
+            <h2>Thermodynamic Cycles & Heat Engines</h2>
+
+            <div class="formula-card">
+                <h3>🚂 Carnot Cycle</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$\eta_{Carnot} = 1 - \frac{T_C}{T_H} = \frac{T_H - T_C}{T_H}$$
+                        $$\frac{Q_H}{T_H} = \frac{Q_C}{T_C}$$
+                    </div>
+                    <p><strong>Steps:</strong> Isothermal expansion → Adiabatic expansion → Isothermal compression → Adiabatic compression</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>⚙️ Otto Cycle</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$\eta_{Otto} = 1 - \frac{1}{r^{\gamma-1}}$$
+                    </div>
+                    <p><strong>Where:</strong> r = compression ratio = \(V_{max}/V_{min}\)</p>
+                    <p><strong>Steps:</strong> Adiabatic compression → Isochoric heating → Adiabatic expansion → Isochoric cooling</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🔧 Diesel Cycle</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$\eta_{Diesel} = 1 - \frac{1}{\gamma} \cdot \frac{r_c^{\gamma} - 1}{r^{\gamma-1}(r_c - 1)}$$
+                    </div>
+                    <p><strong>Where:</strong> r = compression ratio, \(r_c\) = cutoff ratio</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>❄️ Refrigerators and Heat Pumps</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$COP_{ref} = \frac{Q_C}{W} = \frac{Q_C}{Q_H - Q_C} = \frac{T_C}{T_H - T_C}$$ (Carnot Refrigerator)
+                        $$COP_{HP} = \frac{Q_H}{W} = \frac{Q_H}{Q_H - Q_C} = \frac{T_H}{T_H - T_C}$$ (Carnot Heat Pump)
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4>⚠️ Efficiency Relations</h4>
+                <div class="formula">
+                    $$\eta = \frac{W_{net}}{Q_{in}} = 1 - \frac{Q_{out}}{Q_{in}}$$
+                    $$\eta_{any} \leq \eta_{Carnot}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Entropy Section -->
+        <div id="entropy" class="section">
+            <h2>Entropy & Free Energy</h2>
+
+            <div class="formula-card">
+                <h3>🌀 Entropy Calculations</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$dS = \frac{\delta Q_{rev}}{T}$$
+                        $$S = k_B \ln \Omega$$ (Boltzmann's Formula)
+                        $$\Delta S = nC_v \ln\left(\frac{T_f}{T_i}\right) + nR\ln\left(\frac{V_f}{V_i}\right)$$ (Ideal Gas)
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🔄 Entropy Change for Common Processes</h3>
+                <table>
+                    <tr>
+                        <td><strong>Isothermal:</strong></td>
+                        <td>\(\Delta S = nR\ln\left(\frac{V_f}{V_i}\right) = \frac{Q}{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Isobaric:</strong></td>
+                        <td>\(\Delta S = nC_p\ln\left(\frac{T_f}{T_i}\right)\)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Isochoric:</strong></td>
+                        <td>\(\Delta S = nC_v\ln\left(\frac{T_f}{T_i}\right)\)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adiabatic:</strong></td>
+                        <td>\(\Delta S = 0\) (reversible)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phase Change:</strong></td>
+                        <td>\(\Delta S = \frac{L}{T}\)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="formula-card">
+                <h3>⚡ Maxwell Relations</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$\left(\frac{\partial T}{\partial V}\right)_S = -\left(\frac{\partial P}{\partial S}\right)_V$$
+                        $$\left(\frac{\partial T}{\partial P}\right)_S = \left(\frac{\partial V}{\partial S}\right)_P$$
+                        $$\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial P}{\partial T}\right)_V$$
+                        $$\left(\frac{\partial S}{\partial P}\right)_T = -\left(\frac{\partial V}{\partial T}\right)_P$$
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🎯 Free Energy Criteria</h3>
+                <div class="formula-box">
+                    <p><strong>Helmholtz Free Energy (F):</strong> Minimum at equilibrium (constant T, V)</p>
+                    <div class="formula">
+                        $$dF = -SdT - PdV$$
+                        $$\Delta F = \Delta U - T\Delta S$$
+                    </div>
+                    <p><strong>Gibbs Free Energy (G):</strong> Minimum at equilibrium (constant T, P)</p>
+                    <div class="formula">
+                        $$dG = -SdT + VdP$$
+                        $$\Delta G = \Delta H - T\Delta S$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kinetic Theory Section -->
+        <div id="gases" class="section">
+            <h2>Kinetic Theory of Gases</h2>
+
+            <div class="formula-card">
+                <h3>🎱 Ideal Gas Relations</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$PV = nRT = Nk_BT$$
+                        $$PV^\gamma = \text{constant}$$ (Adiabatic)
+                        $$\gamma = \frac{C_p}{C_v}$$
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>📊 Molecular Speeds</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$v_{rms} = \sqrt{\frac{3k_BT}{m}} = \sqrt{\frac{3RT}{M}}$$
+                        $$\bar{v} = \sqrt{\frac{8k_BT}{\pi m}} = \sqrt{\frac{8RT}{\pi M}}$$
+                        $$v_{mp} = \sqrt{\frac{2k_BT}{m}} = \sqrt{\frac{2RT}{M}}$$
+                    </div>
+                    <p><strong>Where:</strong> \(v_{rms}\) = root mean square speed, \(\bar{v}\) = average speed, \(v_{mp}\) = most probable speed</p>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🌡️ Internal Energy & Heat Capacities</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$U = \frac{f}{2}nRT$$
+                        $$C_v = \frac{f}{2}R$$
+                        $$C_p = C_v + R = \frac{f+2}{2}R$$
+                        $$\gamma = \frac{C_p}{C_v} = \frac{f+2}{f}$$
+                    </div>
+                    <table style="margin-top: 15px;">
+                        <tr>
+                            <th>Gas Type</th>
+                            <th>f (degrees of freedom)</th>
+                            <th>γ</th>
+                        </tr>
+                        <tr>
+                            <td>Monatomic</td>
+                            <td>3</td>
+                            <td>5/3 ≈ 1.67</td>
+                        </tr>
+                        <tr>
+                            <td>Diatomic</td>
+                            <td>5</td>
+                            <td>7/5 = 1.40</td>
+                        </tr>
+                        <tr>
+                            <td>Polyatomic</td>
+                            <td>6</td>
+                            <td>4/3 ≈ 1.33</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>📈 Maxwell-Boltzmann Distribution</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$f(v) = 4\pi n \left(\frac{m}{2\pi k_BT}\right)^{3/2} v^2 e^{-mv^2/2k_BT}$$
+                    </div>
+                    <p><strong>Energy Distribution:</strong></p>
+                    <div class="formula">
+                        $$f(E) = \frac{2\pi n}{(\pi k_BT)^{3/2}} \sqrt{E} \, e^{-E/k_BT}$$
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🔵 Real Gases - Van der Waals Equation</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        $$\left(P + \frac{an^2}{V^2}\right)(V - nb) = nRT$$
+                    </div>
+                    <p><strong>Critical Constants:</strong></p>
+                    <div class="formula">
+                        $$T_c = \frac{8a}{27Rb}, \quad P_c = \frac{a}{27b^2}, \quad V_c = 3nb$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Constants Section -->
+        <div id="constants" class="section">
+            <h2>Constants & Reference Tables</h2>
+
+            <div class="formula-card">
+                <h3>🔢 Fundamental Constants</h3>
+                <div class="constant-grid">
+                    <div class="constant-item">
+                        <strong>Gas Constant (R)</strong>
+                        <p>8.314 J/(mol·K)</p>
+                        <p>0.08206 L·atm/(mol·K)</p>
+                    </div>
+                    <div class="constant-item">
+                        <strong>Boltzmann Constant (k<sub>B</sub>)</strong>
+                        <p>1.381 × 10<sup>-23</sup> J/K</p>
+                    </div>
+                    <div class="constant-item">
+                        <strong>Avogadro's Number (N<sub>A</sub>)</strong>
+                        <p>6.022 × 10<sup>23</sup> mol<sup>-1</sup></p>
+                    </div>
+                    <div class="constant-item">
+                        <strong>Standard Pressure</strong>
+                        <p>1 atm = 101,325 Pa</p>
+                        <p>1 bar = 10<sup>5</sup> Pa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <h3>🔄 Unit Conversions</h3>
+                <table>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Conversions</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy</strong></td>
+                        <td>1 cal = 4.184 J, 1 eV = 1.602 × 10<sup>-19</sup> J</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>T(K) = T(°C) + 273.15, T(°F) = 9T(°C)/5 + 32</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pressure</strong></td>
+                        <td>1 Torr = 133.322 Pa, 1 psi = 6,895 Pa</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume</strong></td>
+                        <td>1 L = 10<sup>-3</sup> m³ = 1000 cm³</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Exam Tips & Common Pitfalls</h4>
+                <ul>
+                    <li><strong>Sign Conventions:</strong> W is positive when work is done BY the system</li>
+                    <li><strong>Units:</strong> Always check that R has correct units for your calculation</li>
+                    <li><strong>Reversible Process:</strong> Maximum work is obtained in reversible processes</li>
+                    <li><strong>Entropy:</strong> Always increases for isolated systems (2nd Law)</li>
+                    <li><strong>Carnot Efficiency:</strong> Maximum possible efficiency between two temperatures</li>
+                    <li><strong>State Functions:</strong> U, H, S, F, G are path-independent</li>
+                    <li><strong>Process Functions:</strong> Q and W are path-dependent</li>
+                    <li><strong>Adiabatic:</strong> No heat transfer, but temperature can change</li>
+                    <li><strong>Isothermal:</strong> ΔU = 0 for ideal gas (U depends only on T)</li>
+                </ul>
+            </div>
+
+            <div class="important">
+                <h4>📝 Quick Reference Formulas</h4>
+                <table>
+                    <tr>
+                        <td><strong>Ideal Gas:</strong></td>
+                        <td>PV = nRT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>First Law:</strong></td>
+                        <td>dU = δQ - δW</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carnot Efficiency:</strong></td>
+                        <td>η = 1 - T<sub>C</sub>/T<sub>H</sub></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Entropy (Boltzmann):</strong></td>
+                        <td>S = k<sub>B</sub> ln Ω</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gibbs Free Energy:</strong></td>
+                        <td>G = H - TS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RMS Speed:</strong></td>
+                        <td>v<sub>rms</sub> = √(3RT/M)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Remove active class from all tabs
+        const tabs = document.querySelectorAll('.nav-tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        // Show selected section
+        document.getElementById(sectionId).classList.add('active');
+
+        // Add active class to clicked tab
+        event.target.classList.add('active');
+
+        // Re-render MathJax for the newly visible section
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    }
+
+    // Ensure MathJax renders on page load
+    window.addEventListener('load', function() {
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    });
+</script>
+</body>
+</html>
