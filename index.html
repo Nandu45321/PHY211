@@ -225,6 +225,7 @@
     <div class="nav-tabs">
         <button class="nav-tab active" onclick="showSection('basics')">Basic Laws</button>
         <button class="nav-tab" onclick="showSection('processes')">Processes</button>
+        <button class="nav-tab" onclick="showSection('statevars')">State Variables</button>
         <button class="nav-tab" onclick="showSection('cycles')">Cycles & Engines</button>
         <button class="nav-tab" onclick="showSection('entropy')">Entropy & Free Energy</button>
         <button class="nav-tab" onclick="showSection('gases')">Kinetic Theory</button>
@@ -366,6 +367,145 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="statevars" class="section">
+            <h2>Thermodynamic Variables</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>System</th>
+                    <th>Intensive Variable</th>
+                    <th>Extensive Variable</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Hydrostatic system</td>
+                    <td>Pressure, P</td>
+                    <td>Volume, V</td>
+                </tr>
+                <tr>
+                    <td>Stretched wire</td>
+                    <td>Tension, F</td>
+                    <td>Length, L</td>
+                </tr>
+                <tr>
+                    <td>Surface</td>
+                    <td>Surface tension, &gamma;</td>
+                    <td>Area, A</td>
+                </tr>
+                <tr>
+                    <td>Dielectric slab</td>
+                    <td>Electric field, E</td>
+                    <td>Total polarization, P</td>
+                </tr>
+                <tr>
+                    <td>Paramagnetic rod</td>
+                    <td>Magnetic field, H</td>
+                    <td>Total magnetization, M</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Equations of State</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>System/Law</th>
+                    <th>Equation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ideal Gas</td>
+                    <td>\(PV = nRT\)</td>
+                </tr>
+                <tr>
+                    <td>van der Waals</td>
+                    <td>\(\left(P + \frac{a}{V^2}\right)(V - b) = nRT\)</td>
+                </tr>
+                <tr>
+                    <td>Stretched Wire</td>
+                    <td>\(F = k(L - L_0)\)</td>
+                </tr>
+                <tr>
+                    <td>Dielectric Slab</td>
+                    <td>\(P = \left(a + \frac{b}{T}\right)E\)</td>
+                </tr>
+                <tr>
+                    <td>Paramagnetic Material (Curie's Law)</td>
+                    <td>\(M = \frac{C}{T}H\)</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>First Law of Thermodynamics</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>System</th>
+                    <th>First Law Form</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>Hydrostatic system</strong></td>
+                    <td>\(dU = dQ - PdV\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Stretched wire</strong></td>
+                    <td>\(dU = dQ + FdL\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Surface</strong></td>
+                    <td>\(dU = dQ + \gamma dA\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Dielectric slab</strong></td>
+                    <td>\(dU = dQ + EdP\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Paramagnetic rod</strong></td>
+                    <td>\(dU = dQ + \mu_0 H dM\)</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Heat Capacity Definitions</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Term/Concept</th>
+                    <th>Equation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>Heat Capacity</strong></td>
+                    <td>\(C = \frac{dQ}{dT}\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Specific Heat Capacity</strong></td>
+                    <td>\(c = \frac{1}{m}\frac{dQ}{dT}\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Constant Volume (C<sub>V</sub>)</strong></td>
+                    <td>\(C_V = \left(\frac{\partial U}{\partial T}\right)_V\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Constant Pressure (C<sub>P</sub>)</strong></td>
+                    <td>\(C_P = \left(\frac{\partial Q}{\partial T}\right)_P\)</td>
+                </tr>
+                <tr>
+                    <td><strong>Relation between C<sub>P</sub> & C<sub>V</sub></strong></td>
+                    <td>\(C_P - C_V = \left[\left(\frac{\partial U}{\partial V}\right)_T + P\right]V\beta\)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
 
         <!-- Cycles Section -->
         <div id="cycles" class="section">
