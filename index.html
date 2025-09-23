@@ -302,39 +302,39 @@
                 <tr>
                     <th>Process</th>
                     <th>Condition</th>
-                    <th>Work (W)</th>
-                    <th>Heat (Q)</th>
                     <th>ΔU</th>
+                    <th>Heat (Q)</th>
+                    <th>Work (W)</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td><strong>Isothermal</strong></td>
                     <td>\(T = \text{const}\)</td>
-                    <td>\(nRT\ln\left(\frac{V_f}{V_i}\right)\)</td>
-                    <td>\(nRT\ln\left(\frac{V_f}{V_i}\right)\)</td>
                     <td>0</td>
+                    <td>\(nRT\ln\left(\frac{V_f}{V_i}\right)\)</td>
+                    <td>\(nRT\ln\left(\frac{V_f}{V_i}\right)\)</td>
                 </tr>
                 <tr>
                     <td><strong>Adiabatic</strong></td>
                     <td>\(Q = 0\)</td>
-                    <td>\(\frac{nR(T_i - T_f)}{\gamma - 1}\)</td>
-                    <td>0</td>
                     <td>\(-W\)</td>
-                </tr>
-                <tr>
-                    <td><strong>Isobaric</strong></td>
-                    <td>\(P = \text{const}\)</td>
-                    <td>\(P(V_f - V_i)\)</td>
-                    <td>\(nC_p(T_f - T_i)\)</td>
-                    <td>\(nC_v(T_f - T_i)\)</td>
+                    <td>0</td>
+                    <td>\(\frac{nR(T_i - T_f)}{\gamma - 1}\)</td>
                 </tr>
                 <tr>
                     <td><strong>Isochoric</strong></td>
                     <td>\(V = \text{const}\)</td>
-                    <td>0</td>
-                    <td>\(nC_v(T_f - T_i)\)</td>
                     <td>\(Q\)</td>
+                    <td>\(nC_v(T_f - T_i)\)</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td><strong>Isobaric</strong></td>
+                    <td>\(P = \text{const}\)</td>
+                    <td>\(nC_v(T_f - T_i)\)</td>
+                    <td>\(nC_p(T_f - T_i)\)</td>
+                    <td>\(P(V_f - V_i)\)</td>
                 </tr>
                 </tbody>
             </table>
